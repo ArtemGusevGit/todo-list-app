@@ -185,7 +185,7 @@ function cancelLeave() {
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
             <path d="M11 14L6 9l5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
-          Notes
+          <span class="btn-label">Notes</span>
         </button>
 
         <!-- Right side -->
@@ -228,14 +228,14 @@ function cancelLeave() {
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M1.5 3.5h11M5 3.5V2h4v1.5M2.5 3.5l.75 8.25h7.5l.75-8.25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            Delete
+            <span class="btn-label">Delete</span>
           </BaseButton>
 
           <BaseButton variant="primary" size="sm" @click="save" :disabled="!hasUnsavedChanges">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 7.5l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            Save
+            <span class="btn-label">Save</span>
           </BaseButton>
 
         </div>
@@ -405,6 +405,12 @@ function cancelLeave() {
 
     &:hover {
       background-color: var(--color-danger-light) !important;
+    }
+  }
+
+  .btn-label {
+    @media (max-width: 479px) {
+      display: none;
     }
   }
 

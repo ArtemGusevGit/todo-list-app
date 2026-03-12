@@ -66,7 +66,7 @@ const noteToDelete = computed(() =>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
             </svg>
-            New Note
+            <span class="btn-label">New Note</span>
           </BaseButton>
         </div>
       </div>
@@ -170,6 +170,12 @@ const noteToDelete = computed(() =>
     display: flex;
     align-items: center;
     gap: var(--space-2);
+  }
+
+  .btn-label {
+    @media (max-width: 479px) {
+      display: none;
+    }
   }
 
   &__brand-name {
