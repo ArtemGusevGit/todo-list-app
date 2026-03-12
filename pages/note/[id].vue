@@ -238,22 +238,6 @@ function cancelLeave() {
             Save
           </BaseButton>
 
-          <!-- Save status -->
-          <Transition name="fade">
-            <span
-              v-if="savedToastVisible || hasUnsavedChanges"
-              :class="savedToastVisible ? 'edit-page__saved-badge' : 'edit-page__unsaved-badge'"
-              role="status"
-            >
-              <template v-if="savedToastVisible">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 6l2.5 2.5L10 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                Saved
-              </template>
-              <template v-else>Unsaved changes</template>
-            </span>
-          </Transition>
         </div>
       </div>
     </header>
@@ -261,6 +245,22 @@ function cancelLeave() {
     <!-- ── Editor ─────────────────────────────────────────────────────────── -->
     <main class="edit-page__main">
       <div class="edit-page__container">
+        <Transition name="fade">
+          <span
+            v-if="savedToastVisible || hasUnsavedChanges"
+            :class="savedToastVisible ? 'edit-page__saved-badge' : 'edit-page__unsaved-badge'"
+            role="status"
+          >
+            <template v-if="savedToastVisible">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 6l2.5 2.5L10 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              Saved
+            </template>
+            <template v-else>Unsaved changes</template>
+          </span>
+        </Transition>
+
         <NoteForm :note="present" @commit="onCommit" />
       </div>
     </main>
@@ -419,6 +419,7 @@ function cancelLeave() {
     padding: 2px 8px;
     border-radius: var(--radius-full);
     white-space: nowrap;
+    margin-bottom: var(--space-4);
   }
 
   &__unsaved-badge {
@@ -426,8 +427,9 @@ function cancelLeave() {
     align-items: center;
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
-    color: var(--color-warning);
+    color: var(--color-text-muted);
     white-space: nowrap;
+    margin-bottom: var(--space-4);
   }
 
   // ── Main ────────────────────────────────────────────────────────────────────
@@ -439,6 +441,8 @@ function cancelLeave() {
   &__container {
     max-width: 800px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
 }
 
