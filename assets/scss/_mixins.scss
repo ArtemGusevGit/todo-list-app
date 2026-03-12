@@ -1,0 +1,94 @@
+// ─── Breakpoints ─────────────────────────────────────────────────────────────
+@mixin xs {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+// ─── Layout helpers ──────────────────────────────────────────────────────────
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+// ─── Typography ──────────────────────────────────────────────────────────────
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin clamp-lines($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ─── Transitions ─────────────────────────────────────────────────────────────
+@mixin transition($props: all, $duration: 0.2s, $easing: ease) {
+  transition: $props $duration $easing;
+}
+
+// ─── Focus ring ──────────────────────────────────────────────────────────────
+@mixin focus-ring {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// ─── Scrollbar ───────────────────────────────────────────────────────────────
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+
+    &:hover {
+      background: var(--color-text-muted);
+    }
+  }
+}
